@@ -1,0 +1,5 @@
+### Practice Segment Tree & Fenwick Tree
+
+---
+##### Problems
+- [x] [1395. Count Number of Teams](https://leetcode.com/problems/count-number-of-teams)
