@@ -1,0 +1,25 @@
+seg result : 3
+fen result : 3
+seg time taken : 0.001 sec
+fen time taken : 0.000 sec
+
+seg result : 0
+fen result : 0
+seg time taken : 0.000 sec
+fen time taken : 0.000 sec
+
+seg result : 4
+fen result : 4
+seg time taken : 0.000 sec
+fen time taken : 0.000 sec
+
+seg result : 55938691
+fen result : 55938691
+seg time taken : 0.017 sec
+fen time taken : 0.000 sec
+
+seg result : 55006
+fen result : 55006
+seg time taken : 0.001 sec
+fen time taken : 0.000 sec
+
