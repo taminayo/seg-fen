@@ -1,6 +1,8 @@
+48726955 == 48726955
 time taken to construct segment tree: 0.001 sec
 time taken to construct fenwick tree: 0.000 sec
 
+4768202 == 4768202
 time taken to construct segment tree: 0.000 sec
 time taken to construct fenwick tree: 0.000 sec
 

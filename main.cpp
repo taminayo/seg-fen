@@ -50,7 +50,7 @@ void get_input() {
 }
 
 void seg_tree() {
-    int seg[4*(MAX_N+1)] = {0};
+    int seg[4*MAX_N] = {0};
     function<void(int, int, int, int, int)> update = [&seg, &update](int v, int tl, int tr, int pos, int d) {
         if (pos < tl || pos > tr) return;
         if (tl == tr) seg[v] += d;
@@ -68,6 +68,30 @@ void seg_tree() {
         int left = query(v*2, tl, tm, l, r);
         int right = query(v*2+1, tm+1, tr, l, r);
         return left+right;
+    };
+    int lazy[4*(MAX_N)] = {0};
+    function<void(int, int, int, int, int, int)> lazy_update = [&seg, &lazy, &lazy_update](int v, int tl, int tr, int l, int r, int d) {
+        if (lazy[v] != 0) {
+            seg[v] += (tr-tl+1)*d;
+            if (tl != tr) {
+                lazy[v*2] += lazy[v];
+                lazy[v*2+1] += lazy[v];
+            }
+            lazy[v] = 0;
+        }
+        if (r < tl || tr < l) return;
+        if (l <= tl && tr <= r) {
+            seg[v] += (tr-tl+1)*d;
+            if (tl != tr) {
+                lazy[v*2] += d;
+                lazy[v*2+1] += d;
+            }
+            return;
+        }
+        int tm = tl + (tr-tl)/2;
+        lazy_update(v*2, tl, tm, l, r, d);
+        lazy_update(v*2+1, tm+1, tr, l, r, d);
+        seg[v] = seg[v*2] + seg[v*2+1];
     };
     for (int i = 0; i < N; ++i) {
         update(1, 0, N+1, i+1, INPUT[i]);
